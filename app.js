@@ -1,6 +1,8 @@
 const http = require('http');
 const fs = require('fs');
-const { error } = require('console');
+const ejs = require('ejs');
+
+const index_page = fs.readFileSync('./index.ejs', 'utf8');
 
 let server = http.createServer(getFromClient);
 
@@ -10,14 +12,9 @@ console.log('Server start!');
 // ここまでメインプログラム========
 
 // createServerの処理
-function getFromClient(req, res) {
-    request = req;
-    response = res;
-    fs.readFile('./index.html', 'UTF-8',
-        (error, data) => {
+function getFromClient(request, response) {
+    let content = ejs.render(index_page);
             response.writeHead(200, { 'Content-Type': 'text/html' });
-            response.write(data);
+            response.write(content);
             response.end();
-        }
-    );
 }
