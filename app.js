@@ -4,6 +4,7 @@ let data = {
     'Sachiko': '070-777-777',
     'Ichiro': '060-666-666'
 }
+
 const http = require('http');
 const fs = require('fs');
 const ejs = require('ejs');
