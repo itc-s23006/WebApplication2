@@ -1,5 +1,6 @@
-{"id":"23006","msg":"app"}
-{"id":"23006","msg":"app"}
+{"id":"s23006","msg":"cookie"}
+{"id":"s23006","msg":"rooter"}
+{"id":"s23006","msg":"Next.js"}
 {"id":"23006","msg":"app"}
 {"id":"23006","msg":"ログインページ"}
 {"id":"23006","msg":"Node.js"}
