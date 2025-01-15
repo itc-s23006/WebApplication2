@@ -2,12 +2,18 @@ const express = require('express');
 const router = express.Router();
 
 router.get('/', (req, res, next) => {
-    let name = req.query.name;
-    let mail = req.query.mail;
     let data = {
         title: 'Hello!',
-        content: 'あなたの名前は、' + name + '。<br>' +
-        'メールアドレスは、' + mail + 'です。'
+        content: '※何か書いて送信して下さい。'
+    };
+    res.render('hello', data);
+});
+
+router.post('/post', (req, res, next) => {
+    let msg = req.body['message'];
+    let data = {
+        title: 'Hello!',
+        content: 'あなたは、「' + msg + '」と送信しました。'
     };
     res.render('hello', data);
 });
