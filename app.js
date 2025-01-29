@@ -3,6 +3,7 @@ var express = require('express');
 var path = require('path');
 var cookieParser = require('cookie-parser');
 var logger = require('morgan');
+
 const session = require('express-session');
 
 var indexRouter = require('./routes/index');
@@ -18,6 +19,13 @@ var session_opt = {
   cookie: { maxAge: 60 * 60 * 1000 }
 };
 app.use(session(session_opt));
+
+
+var indexRouter = require('./routes/index');
+var usersRouter = require('./routes/users');
+let helloRouter = require('./routes/hello');
+var app = express();
+
 
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
