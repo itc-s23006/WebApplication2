@@ -10,19 +10,10 @@
     </head>
     <body class="container">
         <header>
-            <h1 class="display-4">
-                <%= title %></h1>
+            <h1><%= title %></h1>
         </header>
         <div role="main">
-            <% if (content != null) { %>
-            <ol>
-                <% for(let i in content) { %>
-                <% let obj = content[i]; %>
-            <li><a href="<%=obj.link %>">
-                <%= obj.title %></a></li>
-                <% } %>
-            </ol>
-            <% } %>
+            <p><%- content %></p>
         </div>
     </body>
 </html>
