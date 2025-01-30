@@ -5,11 +5,7 @@
  */
 
 var app = require('../app');
-<<<<<<< HEAD
 var debug = require('debug')('ex-gen-app:server');
-=======
-var debug = require('debug')('ex-gen-app2:server');
->>>>>>> 50b15ca (2回目)
 var http = require('http');
 
 /**
