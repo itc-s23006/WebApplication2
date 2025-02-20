@@ -1,20 +1,27 @@
-const express = require('express'); // expressモジュールを読み込み。
+const express = require('express');
 const router = express.Router();
-const sqlite3 = require('sqlite3');
-const db = new sqlite3.Database('mydb.db');
 
-router.get('/', (req, res, next) => {
-    db.serialize(() => {
-        db.all("select * from mydata", (err, rows) => {
-            if (!err) {
-                let data = {
-                    title: 'Hello!',
-                    content: rows
-                };
-                res.redirect('hello', data);
-            }
-        });
-    });
- });  
+const sqlite3 = require('sqlite3'); // 追加
 
-module.exports = router; // このルーターをモジュールとしてエクスポート。
+// データベースオブジェクトの取得
+const db = new sqlite3.Database('mydb2');
+
+// GETアクセスの処理
+router.get('/',(req, res, next) => {
+  
+  db.serialize(() => {
+    //レコードをすべて取り出す
+    db.all("select * from mydata",(err, rows) => {
+      // データベースアクセス完了時の処理
+      if (!err) {
+        let data = {
+          title: 'Hello!',
+          content: rows 
+        };
+        res.render('hello', data);
+      }   
+    }); 
+  }); 
+});
+
+module.exports = router;
