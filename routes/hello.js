@@ -8,19 +8,14 @@ const db = new sqlite3.Database('mydb2');
 
 // GETアクセスの処理
 router.get('/',(req, res, next) => {
-  
-  db.serialize(() => {
-    //レコードをすべて取り出す
-    db.all("select * from mydata",(err, rows) => {
-      // データベースアクセス完了時の処理
-      if (!err) {
-        let data = {
-          title: 'Hello!',
-          content: rows 
-        };
-        res.render('hello', data);
-      }   
-    }); 
+  db.all("select * from mydata",(err, rows) => {
+    if (!err) {
+      var data = {
+        title: 'Hello!',
+        content: rows
+      };
+      res.render('hello', data);
+    }   
   }); 
 });
 
